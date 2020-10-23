@@ -3,6 +3,11 @@
     <h2>
       TTnews
     </h2>
+    <i class="iconfont iconshouye"></i>
+    <van-button
+      round
+      type="info"
+    >圆形按钮</van-button>
     <router-view />
   </div>
 </template>
