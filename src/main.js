@@ -8,11 +8,15 @@ import Vant from 'vant'
 import './assets/css/global.css'
 // 导入vant对应样式
 import 'vant/lib/index.css'
+// 导入lib-flexible设置基rem准值
+import 'amfe-flexible'
+
+// 导入axios模块
+import { axios } from '@/plugins/axios.js'
 
 Vue.config.productionTip = false
 Vue.use(Vant)
-// Vue.use(Button)
-
+Vue.prototype.$http = axios
 new Vue({
   router,
   store,

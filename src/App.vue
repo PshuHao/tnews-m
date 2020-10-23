@@ -3,7 +3,6 @@
     <h2>
       TTnews
     </h2>
-    <i class="iconfont iconshouye"></i>
     <van-button
       round
       type="info"
@@ -14,9 +13,22 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  created () {
+    // this.getTest()
+  }
+  // methods: {
+  //   async getTest () {
+  //     const { data: res } = await this.$http.get('/users')
+  //     console.log(res)
+  //   }
+  // }
 }
 </script>
 
 <style lang="sass" scoped>
+.box
+  width: 375px
+  height: 200px
+  background-color: skyblue
 </style>
