@@ -1,8 +1,7 @@
-import axios from 'axios'
+// import axios from 'axios'
 
-axios.defaults.baseURL = 'http://ttapi.research.itcast.cn'
+// axios.defaults.baseURL = 'http://ttapi.research.itcast.cn'
 
-// axios.interceptors.request.use()
-export {
-  axios
-}
+// export {
+//   axios
+// }
