@@ -263,10 +263,19 @@ export default {
         }
       }
       .right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         .van-button {
           color: #8c8c8c;
           font-size: 20px;
+          line-height: 0;
         }
+        // .van-button__content {
+        //   display: flex;
+        //   align-items: center;
+        //   justify-content: center;
+        // }
       }
     }
     .data-stats {
