@@ -1,7 +1,5 @@
 <template>
-  <div>
-    layout-tabber
-  </div>
+  <div class="video-container">video</div>
 </template>
 
 <script>
@@ -10,5 +8,5 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 </style>

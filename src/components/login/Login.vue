@@ -4,7 +4,13 @@
     <van-nav-bar
       class="page-nav-var"
       title="登录"
-    />
+    >
+      <van-icon
+        slot="left"
+        name="cross"
+        @click="$router.back()"
+      />
+    </van-nav-bar>
     <!-- 登录验证表单 -->
     <van-form
       ref="loginFormRef"
@@ -104,10 +110,10 @@ export default {
 
       try {
         const { data: res } = await login(this.user)
-        console.log('登录成功', res)
         this.$store.commit('setUser', res.data)
         this.$toast.success('登录成功')
         this.isLoadingFlage = false
+        this.$router.back()
       } catch (err) {
         if (err.response.status === 400) {
           console.log('登录失败！', err)

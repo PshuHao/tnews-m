@@ -1,7 +1,7 @@
 export const getItem = key => {
   const data = window.localStorage.getItem(key)
   try {
-    return JSON.parse(key)
+    return JSON.parse(data)
   } catch (err) {
     // console.log(err)
     return data
