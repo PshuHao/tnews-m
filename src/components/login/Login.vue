@@ -109,7 +109,6 @@ export default {
         this.$toast.success('登录成功')
         this.isLoadingFlage = false
       } catch (err) {
-        // if (err.response.status === 400) { console.log('登录失败', err) }
         if (err.response.status === 400) {
           console.log('登录失败！', err)
           this.$toast.fail('手机号或验证码错误')
@@ -117,6 +116,7 @@ export default {
           this.$toast.fail('登录失败，请稍后重试')
         }
         this.isLoadingFlage = false
+        this.$toast.fail('登录失败，请稍后重试')
       }
     },
     async onSendSms () {
