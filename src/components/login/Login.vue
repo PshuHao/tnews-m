@@ -2,7 +2,7 @@
   <div>
     <!-- banner区域 -->
     <van-nav-bar
-      class="page-nav-var"
+      class="page-nav-bar"
       title="登录"
     >
       <van-icon
@@ -84,8 +84,8 @@ export default {
       isLoadingFlage: false,
       countDownFlag: false,
       user: {
-        mobile: '',
-        code: ''
+        mobile: '17090086870',
+        code: '246810'
       },
       userFormRules: {
         mobile: [

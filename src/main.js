@@ -11,6 +11,8 @@ import 'vant/lib/index.css'
 // 导入lib-flexible设置基rem准值
 import 'amfe-flexible'
 
+// 导入dayjs模块
+import '@/utils/dayjs'
 // 导入axios模块
 // import { axios } from '@/plugins/axios'
 
