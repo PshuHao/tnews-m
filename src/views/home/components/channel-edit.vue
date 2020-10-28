@@ -160,7 +160,10 @@ export default {
     //   })
     // }
 
-    channelRecomList: (onThis) => onThis.allChannelList.filter(item => onThis.channel.findIndex(v => v.id === item.id) === -1)
+    channelRecomList: (onThis) => {
+      // console.log(onThis)
+      return onThis.allChannelList.filter(item => onThis.channel.findIndex(v => v.id === item.id) === -1)
+    }
 
   }
 
@@ -195,7 +198,11 @@ export default {
     .van-grid-item {
       width: 16px;
       height: 86px;
+      ::v-deep .van-grid-item__content--surround::after {
+        border-width: 0;
+      }
       ::v-deep .van-grid-item__content {
+        border-radius: 30px;
         background-color: #f4f5f6;
       }
       .clear-icon {

@@ -8,6 +8,9 @@ Vue.use(VueRouter)
 const routes = [
   // { path: '/', redirect: '/login' },
   { path: '/login', component: Login },
+
+  // 搜索模块
+  { path: '/search', name: 'search', component: () => import('@/views/search/index.vue') },
   {
     path: '/',
     name: 'layout',
