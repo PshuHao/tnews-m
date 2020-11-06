@@ -66,8 +66,8 @@
           text="登录"
           round
           class="login-btn"
-          :loading="isLoadingFlage"
           type="primary"
+          :loading="isLoadingFlage"
           loading-type="spinner"
           native-type="submit"
         />
@@ -78,6 +78,7 @@
 
 <script>
 import { login, sendSms } from '@/api/user'
+import { mapMutations } from 'vuex'
 export default {
   data () {
     return {
@@ -100,6 +101,7 @@ export default {
     }
   },
   methods: {
+    ...mapMutations(['delCachePages']),
     async onSubmit () {
       // this.$toast.loading({
       //   message: '加载中...',
@@ -113,7 +115,11 @@ export default {
         this.$store.commit('setUser', res.data)
         this.$toast.success('登录成功')
         this.isLoadingFlage = false
-        this.$router.back()
+        // 登录成功后清除缓存
+        this.delCachePages('LayoutIndex')
+
+        // this.$router.back()
+        this.$router.push(this.$route.query.redirect || '/')
       } catch (err) {
         if (err.response.status === 400) {
           console.log('登录失败！', err)

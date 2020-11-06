@@ -51,10 +51,16 @@
 
 <script>
 export default {
+  name: 'LayoutIndex',
   data () {
     return {}
   },
-  methods: {}
+  mounted () {
+    this.$store.commit('addCachePages', 'LayoutIndex')
+  },
+  methods: {
+
+  }
 }
 </script>
 

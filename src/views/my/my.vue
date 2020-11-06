@@ -1,4 +1,5 @@
 <template>
+
   <div class="my-container">
 
     <!-- 已登录模块 -->
@@ -20,6 +21,7 @@
           <van-button
             size="mini"
             round
+            to="/user/info"
           >编辑资料</van-button>
         </div>
       </div>
@@ -51,7 +53,12 @@
     >
       <div
         class="login-btn"
-        @click="$router.push('/login')"
+        @click="$router.push({
+              name: 'login',
+              query: {
+                 redirect: '/my'
+              }
+        })"
       >
         <img
           class="notLoginImg"
@@ -168,6 +175,7 @@
     <!-- <van-popup v-model="showExit">内容</van-popup> -->
 
   </div>
+
 </template>
 
 <script>
@@ -200,7 +208,12 @@ export default {
       } catch (err) {
         this.$toast('获取数据失败，请重试')
       }
+    },
+    beforeRouteUpdate (to, from, next) {
+      console.log(to.name)
+      console.log(from)
     }
+
   },
   computed: {
     ...mapState(['user'])

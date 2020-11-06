@@ -2,6 +2,7 @@
   <van-cell
     class="article-item"
     label="描述信息"
+    @click="$router.push(`/article/${article.art_id}`)"
   >
     <!-- 文章标题 -->
     <div
@@ -61,6 +62,9 @@ export default {
     return {
       articleData: []
     }
+  },
+  created () {
+    // console.log(this.article)
   }
 }
 </script>

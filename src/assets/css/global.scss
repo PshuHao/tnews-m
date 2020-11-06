@@ -11,3 +11,37 @@ body {
     color: #fff !important;
   }
 }
+
+// .child-view {
+//   position: absolute;
+//   width: 100%;
+//   height: 100%;
+// }
+
+// 路由过渡效果
+.slide-right-enter-active,
+.slide-left-enter-active,
+.slide-left-leave-active,
+.slide-right-leave-active {
+  transition: all 0.5s;
+  will-change: transform;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+}
+
+.slide-left-enter {
+  transform: translateX(100%);
+}
+
+.slide-left-leave-to {
+  transform: translateX(-100%);
+}
+
+.slide-right-enter {
+  transform: translateX(-100%);
+}
+.slide-right-leave-to {
+  transform: translateX(100%);
+}

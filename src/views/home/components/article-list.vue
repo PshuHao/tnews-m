@@ -1,5 +1,8 @@
 <template>
-  <div class="article-list">
+  <div
+    class="article-list"
+    ref="article-list"
+  >
     <!-- article-list -->
     <van-pull-refresh
       v-model="isRefreshLoading"
@@ -21,8 +24,8 @@
           :title="item.title"
         /> -->
         <article-item
-          v-for="item in list"
-          :key="item.art_id"
+          v-for="(item ,index) in list"
+          :key="index"
           :article="item"
         ></article-item>
       </van-list>
@@ -33,8 +36,10 @@
 <script>
 import { getArticles } from '@/api/article'
 import ArticleItem from '@/components/article-item/index'
+import { debounce } from 'lodash'
 
 export default {
+  name: 'ArticleList',
   components: {
     ArticleItem
   },
@@ -52,10 +57,21 @@ export default {
       timestamp: null,
       error: false,
       isRefreshLoading: false,
-      refreshSuccessText: ''
+      refreshSuccessText: '',
+      scrollTopData: 0
     }
   },
   created () {},
+  mounted () {
+    const artList = this.$refs['article-list']
+    artList.onscroll = debounce(() => {
+      console.log('onscroll')
+      this.scrollTopData = artList.scrollTop
+    }, 50)
+  },
+  activated () {
+    this.$refs['article-list'].scrollTop = this.scrollTopData
+  },
   methods: {
     async onLoad () {
       try {
@@ -101,6 +117,7 @@ export default {
         this.refreshSuccessText = '刷新失败'
       }
     }
+
   }
 }
 </script>

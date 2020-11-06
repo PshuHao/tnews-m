@@ -88,3 +88,99 @@ export const getSearchResult = queryData => {
     params: queryData
   })
 }
+
+// 获取文章详情，根据文章id
+export const getArtdetail = artId => {
+  return request({
+    method: 'GET',
+    url: `/app/v1_0/articles/${artId}`
+  })
+}
+
+// 关注用户
+export const followUserApi = userId => {
+  return request({
+    method: 'POST',
+    url: '/app/v1_0/user/followings',
+    data: {
+      target: userId
+    }
+  })
+}
+
+// 取消关注用户
+export const cancelFollowApi = userId => {
+  return request({
+    method: 'DELETE',
+    url: `/app/v1_0/user/followings/${userId}`
+  })
+}
+
+// 收藏文章
+export const collectArt = artId => {
+  return request({
+    method: 'POST',
+    url: '/app/v1_0/article/collections',
+    data: {
+      target: artId
+    }
+  })
+}
+
+// 取消收藏文章
+export const cancelCollectArt = artId => {
+  return request({
+    method: 'DELETE',
+    url: `/app/v1_0/article/collections/${artId}`
+  })
+}
+// 点赞文章
+export const onGoodJob = artId => {
+  return request({
+    method: 'POST',
+    url: '/app/v1_0/article/likings',
+    data: {
+      target: artId
+    }
+  })
+}
+
+// 取消点赞文章
+export const cancelGoodJob = artId => {
+  return request({
+    method: 'DELETE',
+    url: `/app/v1_0/article/likings/${artId}`
+  })
+}
+
+// 获取评论或评论回复
+export const getComments = params => {
+  return request({
+    method: 'GET',
+    url: '/app/v1_0/comments',
+    params
+  })
+}
+// 获取用户个人资料
+export const getUserProfile = target => {
+  return request({
+    method: 'GET',
+    url: '/app/v1_0/user/profile'
+  })
+}
+// 编辑用户个人资料
+export const editUserProfile = data => {
+  return request({
+    method: 'PATCH',
+    url: '/app/v1_0/user/profile',
+    data
+  })
+}
+// 编辑用户头像或身份证资料
+export const editUserImg = data => {
+  return request({
+    method: 'PATCH',
+    url: '/app/v1_0/user/photo',
+    data
+  })
+}

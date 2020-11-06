@@ -1,22 +1,41 @@
 <template>
   <div id="app">
 
-    <router-view />
+    <!-- 添加trasition路由过渡效果 -->
+    <transition :name="direction">
+      <keep-alive :include="cachePages">
+        <router-view class="child-view" />
+      </keep-alive>
+    </transition>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'App',
+  data () {
+    return {
+      direction: ''
+    }
+  },
   created () {
     // this.getTest()
   },
-  methods: {
-    // async getTest () {
-    //   const { data: res } = await this.$http.get('/users')
-    //   console.log(res)
-    // }
-
+  computed: {
+    ...mapState(['cachePages'])
+  },
+  methods: {},
+  watch: {
+    '$route' (to, from) {
+      const fromIndex = from.meta.index
+      const toIndex = to.meta.index
+      if (from.meta.index) { this.direction = '' }
+      if (from.meta.index && to.meta.index) {
+        this.direction = fromIndex > toIndex ? 'slide-right' : 'slide-left'
+        console.log('this.direction', this.direction)
+      }
+    }
   }
 }
 </script>
@@ -27,4 +46,6 @@ export default {
   height: 200px;
   background-color: skyblue;
 }
+
+// 路由过渡效果
 </style>
